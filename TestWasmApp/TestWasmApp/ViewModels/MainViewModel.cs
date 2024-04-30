@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using ReactiveUI;
 
 namespace TestWasmApp.ViewModels;
 
@@ -10,16 +11,29 @@ public class MainViewModel : ViewModelBase
 #pragma warning disable CA1822 // Mark members as static
     public MainViewModel()
     {
-        
+        _azureBlobInterface = new AzureBlobInterface();
+        _listener = new EdgeListener();
+        _listener.ImageIsReady += ListenerOnDownloadedImage;
+        _ = Task.Run(() => _listener.Listen(_azureBlobInterface, ImageFromWebsite));
     }
-    EdgeListener _listener = new EdgeListener();
-    // public Bitmap? ImageFromBinding { get; } = ImageHelper.LoadFromResource(new Uri("avares://LoadingImages/Assets/abstract.jpg"));
-    public Task<Bitmap?> ImageFromWebsite { get; } = ImageHelper.LoadFromWeb(new Uri("https://plus.unsplash.com/premium_photo-1708589335486-1645a4730e13?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"));
 
-    public void StartListening()
+    private void ListenerOnDownloadedImage()
     {
-        _listener.AttemptToConnect();
+        ImageFromWebsite = _listener.downloadedImage;
     }
+
+    private EdgeListener _listener;
+
+    private AzureBlobInterface _azureBlobInterface;
+    // public Bitmap? ImageFromBinding { get; } = ImageHelper.LoadFromResource(new Uri("avares://LoadingImages/Assets/abstract.jpg"));
+    private Task<Bitmap?> _imageFromWebsite;
+
+    public Task<Bitmap?> ImageFromWebsite
+    {
+        get => _imageFromWebsite;
+        set => this.RaiseAndSetIfChanged(ref _imageFromWebsite, value);
+    } 
+
     
     
 #pragma warning restore CA1822 // Mark members as static
