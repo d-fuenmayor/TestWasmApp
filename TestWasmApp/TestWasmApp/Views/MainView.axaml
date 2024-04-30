@@ -11,10 +11,17 @@
          to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
     <vm:MainViewModel />
   </Design.DataContext>
-    <Grid>
-    <Button
-        Command="{Binding Path=StartListening}">
-        Click Me
-    </Button>  
+    <Grid
+        ColumnDefinitions="Auto"
+        RowDefinitions="Auto"
+        RenderOptions.BitmapInterpolationMode="HighQuality">
+        
+        <Image
+            Grid.Column="0"
+            Grid.Row="0"
+            Source="{Binding ImageFromWebsite^}"
+            MaxWidth="600">
+        </Image>
+        
     </Grid>
 </UserControl>
