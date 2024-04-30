@@ -8,5 +8,7 @@
         x:Class="TestWasmApp.Views.MainWindow"
         Icon="/Assets/avalonia-logo.ico"
         Title="TestWasmApp">
+        
         <views:MainView />
+        
 </Window>

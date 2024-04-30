@@ -1,8 +1,19 @@
-﻿namespace TestWasmApp.ViewModels;
+﻿using System.Threading.Tasks;
+
+namespace TestWasmApp.ViewModels;
+
+using TestWasmApp.Models;
 
 public class MainViewModel : ViewModelBase
 {
 #pragma warning disable CA1822 // Mark members as static
-    public string Greeting => "This is a placeholder web app that proves CI/CD for an Avalonia WASM Browser App is working!";
+    EdgeListener _listener = new EdgeListener();
+
+    public void StartListening()
+    {
+        _listener.AttemptToConnect();
+    }
+    
+    
 #pragma warning restore CA1822 // Mark members as static
 }
