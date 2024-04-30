@@ -20,7 +20,8 @@
             Grid.Column="0"
             Grid.Row="0"
             Source="{Binding ImageFromWebsite^}"
-            MaxWidth="550">
+            MaxWidth="600"
+            HorizontalAlignment="Center">
         </Image>
         
     </Grid>
