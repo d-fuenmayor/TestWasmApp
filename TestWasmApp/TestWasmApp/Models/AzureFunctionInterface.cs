@@ -10,7 +10,7 @@ public class AzureFunctionInterface
 {
     private static readonly HttpClient client = new()
     {
-        BaseAddress = new Uri("http://localhost:7071")
+        //BaseAddress = new Uri("http://localhost:7071")
     };
     
     public AzureFunctionInterface()
