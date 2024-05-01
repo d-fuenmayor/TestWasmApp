@@ -11,10 +11,14 @@ public class MainViewModel : ViewModelBase
 #pragma warning disable CA1822 // Mark members as static
     public MainViewModel()
     {
-        _azureBlobInterface = new AzureBlobInterface();
-        _listener = new EdgeListener();
-        _listener.ImageIsReady += ListenerOnDownloadedImage;
-        _ = Task.Run(() => _listener.Listen(_azureBlobInterface, ImageFromWebsite));
+        // ImageFromWebsite =
+        //     ImageHelper.LoadFromWeb(new Uri("https://cdn.corporatefinanceinstitute.com/assets/private-vs-public.jpeg"));
+        // _azureBlobInterface = new AzureBlobInterface();
+        // _listener = new EdgeListener();
+        // _listener.ImageIsReady += ListenerOnDownloadedImage;
+        // _ = Task.Run(() => _listener.Listen(_azureBlobInterface, ImageFromWebsite));
+        _azureFunctionInterface = new AzureFunctionInterface();
+        ImageFromWebsite = _azureFunctionInterface.GetBlob();
     }
 
     private void ListenerOnDownloadedImage()
@@ -23,7 +27,7 @@ public class MainViewModel : ViewModelBase
     }
 
     private EdgeListener _listener;
-
+    private AzureFunctionInterface _azureFunctionInterface;
     private AzureBlobInterface _azureBlobInterface;
     // public Bitmap? ImageFromBinding { get; } = ImageHelper.LoadFromResource(new Uri("avares://LoadingImages/Assets/abstract.jpg"));
     private Task<Bitmap?> _imageFromWebsite;
