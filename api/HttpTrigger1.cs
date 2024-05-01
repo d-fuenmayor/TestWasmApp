@@ -26,7 +26,7 @@ public class HttpTrigger1
         
         
         BlobContainerClient blobContainerClient = GetContainerClient("spectrogram-jpegs");
-        BlobClient blobClient = blobContainerClient.GetBlobClient("test.jpeg");
+        BlobClient blobClient = blobContainerClient.GetBlobClient("2024-05-01 16:13:59.933634.jpg");
 
         MemoryStream memoryStream = new MemoryStream();
         var blobContent = blobClient.Download(default, null, false, default);

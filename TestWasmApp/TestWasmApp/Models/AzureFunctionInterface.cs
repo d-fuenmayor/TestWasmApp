@@ -10,7 +10,7 @@ public class AzureFunctionInterface
 {
     private static readonly HttpClient client = new()
     {
-        //BaseAddress = new Uri("http://localhost:7071")
+        BaseAddress = new Uri("http://localhost:7071")
     };
     
     public AzureFunctionInterface()
@@ -18,7 +18,7 @@ public class AzureFunctionInterface
         
     }
 
-    public async Task<Bitmap> GetBlob()
+    public async Task<Bitmap?> GetBlobAsync()
     {
         using HttpResponseMessage response = await client.GetAsync("/api/HttpTrigger1");
         

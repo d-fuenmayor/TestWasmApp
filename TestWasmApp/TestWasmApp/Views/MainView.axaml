@@ -20,12 +20,12 @@
         <Image
             Grid.Column="0"
             Grid.Row="0"
-            Source="{Binding ImageFromWebsite^}"
+            Source="{Binding ImageFromWebsite}"
             MaxWidth="600"
             HorizontalAlignment="Center">
         </Image>
         
-        <Button Grid.Column="1" Grid.Row="1">Click Me</Button>
+        <Button Grid.Column="1" Grid.Row="1" Command="{Binding StartImageProcess}">Click Me</Button>
         
     </Grid>
 </UserControl>

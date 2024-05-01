@@ -4,7 +4,7 @@
     <option name="projectPerEditor">
       <map>
         <entry key="TestWasmApp/TestWasmApp/App.axaml" value="TestWasmApp/TestWasmApp.Browser/TestWasmApp.Browser.csproj" />
-        <entry key="TestWasmApp/TestWasmApp/Views/MainView.axaml" value="TestWasmApp/TestWasmApp.Browser/TestWasmApp.Browser.csproj" />
+        <entry key="TestWasmApp/TestWasmApp/Views/MainView.axaml" value="TestWasmApp/TestWasmApp.Desktop/TestWasmApp.Desktop.csproj" />
         <entry key="TestWasmApp/TestWasmApp/Views/MainWindow.axaml" value="TestWasmApp/TestWasmApp.Browser/TestWasmApp.Browser.csproj" />
       </map>
     </option>
