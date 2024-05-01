@@ -13,19 +13,21 @@
   </Design.DataContext>
     
     <Grid
-        ColumnDefinitions="Auto, Auto"
-        RowDefinitions="Auto, Auto"
+        ColumnDefinitions="*, Auto, *"
+        RowDefinitions="Auto, Auto, *"
         RenderOptions.BitmapInterpolationMode="HighQuality">
         
+        <TextBox Grid.Row="0" Grid.Column="1">Team 16 Spectrogram App</TextBox>
+        
         <Image
-            Grid.Column="0"
-            Grid.Row="0"
+            Grid.Column="1"
+            Grid.Row="1"
             Source="{Binding ImageFromWebsite}"
             MaxWidth="600"
             HorizontalAlignment="Center">
         </Image>
         
-        <Button Grid.Column="1" Grid.Row="1" Command="{Binding StartImageProcess}">Click Me</Button>
+        <Button Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Command="{Binding StartImageProcess}">Start Viewing Live Spectrograph</Button>
         
     </Grid>
 </UserControl>
